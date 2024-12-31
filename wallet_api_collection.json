@@ -1,0 +1,152 @@
+{
+  "info": {
+    "name": "Wallet API",
+    "description": "API para gerenciar carteiras digitais (CRUD, depósitos, saques e transferências)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Criar Carteira",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Minha Carteira\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/wallets",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["wallets"]
+        }
+      }
+    },
+    {
+      "name": "Obter Detalhes da Carteira",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/wallets/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["wallets", "1"]
+        }
+      }
+    },
+    {
+      "name": "Atualizar Carteira",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Carteira Atualizada\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/wallets/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["wallets", "1"]
+        }
+      }
+    },
+    {
+      "name": "Excluir Carteira",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/wallets/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["wallets", "1"]
+        }
+      }
+    },
+    {
+      "name": "Depositar em Carteira",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 100.0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/wallets/1/deposit",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["wallets", "1", "deposit"]
+        }
+      }
+    },
+    {
+      "name": "Sacar de Carteira",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 50.0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/wallets/1/withdraw",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["wallets", "1", "withdraw"]
+        }
+      }
+    },
+    {
+      "name": "Transferir entre Carteiras",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"from_wallet_id\": 1,\n  \"to_wallet_id\": 2,\n  \"amount\": 20.0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/wallets/transfer",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["wallets", "transfer"]
+        }
+      }
+    }
+  ]
+}
